@@ -1,0 +1,22 @@
+.card {
+    width: 28%;
+    height: 400px;
+    object-fit: cover;
+    vertical-align: text-top;
+    display: inline-block;
+    padding-left: 0x 5x;
+    margin: 15px;
+    overflow: hidden;
+}
+
+.header {
+    text-align: left;
+}
+
+.cardImage {
+    width: auto;
+    height: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

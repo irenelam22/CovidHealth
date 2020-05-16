@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { WgerService } from '../wger.service';
 
-import { mergeMap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators'
+
+import { Exercise } from '../models/exercise.model';
 
 @Component({
   selector: 'app-fitness',
@@ -9,13 +11,16 @@ import { mergeMap } from 'rxjs/operators';
   styleUrls: ['./fitness.component.scss']
 })
 export class FitnessComponent implements OnInit {
+  public data: Exercise[] = [];
 
   constructor(
-    private wger: WgerService,
+    public readonly wger: WgerService,
   ) { }
 
   ngOnInit(): void {
-    this.wger.fetchIds().subscribe(e => e.subscribe(console.log))
+    console.log('Start');
+    this.wger.fetchIds().pipe(
+      tap(console.log)
+    ).subscribe((e: Exercise[]) => this.data = e);
   }
-
 }

@@ -1,13 +1,9 @@
-<mat-card class="card1">
+<mat-card class="card" *ngFor="let exercise of data">
     <mat-card-header>
-        <div mat-card-avatar class="TODO: BODY PART"></div>
-        <mat-card-title>NAME OF EXERCISE</mat-card-title>
-        <mat-card-subtitle>Created by: AUTHOR</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="EXERCISE IMAGE" alt="Photo of EXERCISE IMAGE">
-      <mat-card-content>
-        <p>
-          EXERCISE DESCRIPTION
-        </p>
-      </mat-card-content>
+        <div mat-card-avatar class="{{ exercise.category.name }}"></div>
+        <mat-card-title class="header"> {{ exercise.name }}</mat-card-title>
+        <mat-card-subtitle class="header">Created by: {{ exercise.license_author }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image class="cardImage" src="{{ exercise.image }}" alt="Photo of {{ exercise.image }}">
+    <mat-card-content [style.overflow]="'auto'">{{ exercise.description }}</mat-card-content>
 </mat-card>
