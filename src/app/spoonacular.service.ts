@@ -9,7 +9,7 @@ import { Recipe } from './models/nutrition.model';
 })
 export class SpoonacularService {
   private static readonly BASE_URL: string = 'https://api.spoonacular.com/recipes/';
-  private static readonly API_KEY: string = '9b4addee68534150b74449e37c044a2d';
+  private static readonly API_KEY: string = '';
 
   constructor(
     private readonly http: HttpClient,
@@ -18,31 +18,39 @@ export class SpoonacularService {
   findByIngredients(ingredientList) {
     const params = {
       apiKey: SpoonacularService.API_KEY,
-      number: '10',
+      number: '3',
       ingredients: ingredientList,
     }
 
-    return this.http.get<{ results: Recipe[] }>(SpoonacularService.BASE_URL + 'findByIngredients?', { params });
+    return this.http.get< Recipe[]>(SpoonacularService.BASE_URL + 'findByIngredients?', { params });
 
   }
 
   getSimilarRecipe(id) {
     const params = {
       apiKey: SpoonacularService.API_KEY,
-      number: '10',
+      number: '3',
     }
 
-    return this.http.get<{ results: Recipe[] }>(SpoonacularService.BASE_URL + id + '/similar?', { params });
+    return this.http.get<Recipe[] >(SpoonacularService.BASE_URL + id + '/similar?', { params });
 
   }
 
   getRandomRecipe() {
     const params = {
       apiKey: SpoonacularService.API_KEY,
-      number: '10',
+      number: '3',
     }
 
-    return this.http.get<{ results: Recipe[] }>(SpoonacularService.BASE_URL + 'random?', { params });
+    return this.http.get<{ recipes: Recipe[] }>(SpoonacularService.BASE_URL + 'random?', { params });
+
+  }
+
+  getRecipe(id) {
+    const params = {
+      apiKey: SpoonacularService.API_KEY,
+    }
+    return this.http.get<Recipe[] >(SpoonacularService.BASE_URL + id + '/information?', {params});
 
   }
 

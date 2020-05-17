@@ -7,4 +7,9 @@ export interface Recipe {
     missedIngredients: [],
     usedIngredients: [],
     likes: number,
+    servings: number,
+    readyInMinutes: number,
+    sourceName: string,
+    instructions: string,
+    extendedIngredients: [],
   }

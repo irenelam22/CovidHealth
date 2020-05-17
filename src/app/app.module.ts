@@ -15,6 +15,8 @@ import { NutritionComponent } from './nutrition/nutrition.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 
 @NgModule({
@@ -35,6 +37,7 @@ import { FormsModule } from '@angular/forms';
     MatSlideToggleModule,
     MatInputModule,
     MatFormFieldModule,
+    MatDialogModule,
   ],
   bootstrap: [AppComponent]
 })
