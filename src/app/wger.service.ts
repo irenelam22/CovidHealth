@@ -56,7 +56,7 @@ export class WgerService {
       map(([exercises, photos], _) => this.process(exercises, photos)),
       map(exercises => exercises.map(exercise => {
         exercise.description = exercise.description
-          .replace(/\<p\>/g, "").replace(/\<\/p\>/g, "")
+          .replace(/\<p\>/g, "\n").replace(/\<\/p\>/g, "")
           .replace(/\<ol\>/g, "").replace(/\<\/ol\>/g, "")
           .replace(/\<em\>/g, "").replace(/\<\/em\>/g, "")
           .replace(/\<li\>/g, "").replace(/\<\/li\>/g, "");
