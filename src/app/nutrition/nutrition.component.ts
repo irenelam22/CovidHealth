@@ -21,13 +21,16 @@ export class NutritionComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.showRandom();
+  }
+
+  public showRandom() {
     this.spoonacular.getRandomRecipe().pipe(
       pluck('recipes'),
       map(recipes => recipes.map(recipe => {
         recipe.diet = recipe.diets.join(", ");
         return recipe;
       },
-      // tap(console.warn),
     ))).subscribe(recipes => this.data = recipes);
   }
 
