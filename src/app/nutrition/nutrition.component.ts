@@ -4,7 +4,6 @@ import { Recipe } from '../models/nutrition.model';
 import { tap, map, pluck } from 'rxjs/operators'
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
-
 @Component({
   selector: 'app-nutrition',
   templateUrl: './nutrition.component.html',
@@ -17,18 +16,18 @@ export class NutritionComponent implements OnInit {
 
   constructor(
     public readonly spoonacular: SpoonacularService,
+    
     public dialog: MatDialog,
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.spoonacular.getRandomRecipe().pipe(
-      // tap(console.log),
       pluck('recipes'),
       map(recipes => recipes.map(recipe => {
         recipe.diet = recipe.diets.join(", ");
         return recipe;
       },
-      tap(console.warn),
+      // tap(console.warn),
     ))).subscribe(recipes => this.data = recipes);
   }
 
@@ -41,18 +40,17 @@ export class NutritionComponent implements OnInit {
   public recipeInfo(id: string) {
     this.spoonacular.getRecipe(id).pipe(
       tap(console.log)
-    ).subscribe((r: Recipe) => this.data = [r]);
+    ).subscribe( r => this.showRecipe(r));
   }
 
   public showRecipe(recipe: Recipe) {
     this.dialog.open(RecipeOverview, {
       width: '80%',
-      data: { recipe }
+      data: recipe,
     });
-
   }
-
 }
+
 @Component({
   selector: 'recipe-overview',
   templateUrl: 'recipe-overview.html',
@@ -63,11 +61,8 @@ export class RecipeOverview {
 
   constructor(
     public dialogRef: MatDialogRef<RecipeOverview>,
-    @Inject(MAT_DIALOG_DATA) public recipe,
-  ) {
-    // recipe = recipe.recipe;
-    console.warn(recipe)
-  }
+    @Inject(MAT_DIALOG_DATA) public recipe: Recipe,
+  ) { }
 
   onNoClick(): void {
     this.dialogRef.close();

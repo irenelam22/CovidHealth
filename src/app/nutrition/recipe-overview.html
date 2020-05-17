@@ -1,15 +1,11 @@
-
-
-<h1 mat-dialog-title>{{recipe.recipe.title}}</h1>
+<h1 mat-dialog-title>{{recipe.title}}</h1>
 <div mat-dialog-content class="popup">
-    <img src= "{{ recipe.recipe.image }}" alt= "{{ recipe.recipe.image }}" class="foodImage">
-    <p> Source: {{ recipe.recipe.sourceName }} </p>
-    <p> Tags: {{ recipe.recipe.diet }} </p>
-    <p> Servings: {{ recipe.recipe.servings }} </p>
-    <p> Cooktime: {{ recipe.recipe.readyInMinutes }} minutes</p>
-    <p> Summary: </p>
-    {{ recipe.recipe.summary }} 
+    <img src= "{{ recipe.image }}" alt= "{{ recipe.image }}" class="foodImage">
+    <p> Source: {{ recipe.sourceName }} </p>
+    <p> Tags: {{ recipe.diet }} </p>
+    <p> Servings: {{ recipe.servings }} </p>
+    <p> Cooktime: {{ recipe.readyInMinutes }} minutes</p>
+    Summary: <p [innerHTML]="recipe.summary"> </p>
     <p> Instructions: </p> 
-    {{ recipe.recipe.instructions }} 
-    <p> Ingredients: {{ recipe.recipe.extendedIngredients }}  </p>
+    {{ recipe.instructions }} 
 </div>

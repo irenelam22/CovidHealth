@@ -50,7 +50,7 @@ export class SpoonacularService {
     const params = {
       apiKey: SpoonacularService.API_KEY,
     }
-    return this.http.get<Recipe[] >(SpoonacularService.BASE_URL + id + '/information?', {params});
+    return this.http.get<Recipe>(SpoonacularService.BASE_URL + id + '/information?', {params});
 
   }
 
