@@ -12,4 +12,9 @@ export interface Recipe {
     sourceName: string,
     instructions: string,
     extendedIngredients: [],
+    diet: string,
+    diets: string[],
+    dishTypes: [],
+    cuisines: [],
+    summary: string,
   }

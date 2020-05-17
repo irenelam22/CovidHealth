@@ -1,7 +1,7 @@
 <mat-form-field class="search">
     <mat-label>Ingredients</mat-label>
     <input matInput [(ngModel)]="value">
-    <button mat-button *ngIf="value" (click)="renderQuery()">submit</button>
+    <button mat-button *ngIf="value" (click)="recipeByIngredients()">submit</button>
 </mat-form-field>
 
 <br><br>
@@ -13,9 +13,11 @@
         <!-- <mat-card-subtitle class="header">Created by: {{ exercise.license_author }}</mat-card-subtitle> -->
     </mat-card-header>
     <img mat-card-image class="cardImage" src="{{ recipe.image }}" alt="Photo of {{ recipe.image }}">
-    <mat-card-content [style.overflow]="'auto'">
-        Used ingredients: {{ recipe.usedIngredientCount }} 
-        Missed ingredients: {{ recipe.missedIngredients }}
+    <mat-card-content [style.overflow]="'hidden'">
+        <p> Source: {{ recipe.sourceName }} </p>
+        <p> Tags: {{ recipe.diet }} </p>
+        <!-- Tags: <p style="display:inline" *ngFor="let diet of recipe.diets"> {{ diet }} </p> -->
+        <p> {{ recipe.summary }} </p>
     </mat-card-content>
 </mat-card>
 

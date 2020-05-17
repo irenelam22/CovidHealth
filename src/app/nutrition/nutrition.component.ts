@@ -1,8 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { SpoonacularService } from '../spoonacular.service';
 import { Recipe } from '../models/nutrition.model';
-import { tap } from 'rxjs/operators'
+import { tap, map, pluck } from 'rxjs/operators'
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-nutrition',
@@ -12,6 +13,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 export class NutritionComponent implements OnInit {
   value: string = 'Apple';
   public data: Recipe[] = [];
+  public diets = [];
 
   constructor(
     public readonly spoonacular: SpoonacularService,
@@ -19,10 +21,18 @@ export class NutritionComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.spoonacular.getRandomRecipe().subscribe(r => this.data = r.recipes);
+    this.spoonacular.getRandomRecipe().pipe(
+      // tap(console.log),
+      pluck('recipes'),
+      map(recipes => recipes.map(recipe => {
+        recipe.diet = recipe.diets.join(", ");
+        return recipe;
+      },
+      tap(console.warn),
+    ))).subscribe(recipes => this.data = recipes);
   }
 
-  public renderQuery() {
+  public recipeByIngredients() {
     this.spoonacular.findByIngredients(this.value).pipe(
       tap(console.log)
     ).subscribe(r => this.data = r);

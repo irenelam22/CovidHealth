@@ -4,8 +4,11 @@
 <div mat-dialog-content class="popup">
     <img src= "{{ recipe.recipe.image }}" alt= "{{ recipe.recipe.image }}" class="foodImage">
     <p> Source: {{ recipe.recipe.sourceName }} </p>
+    <p> Tags: {{ recipe.recipe.diet }} </p>
     <p> Servings: {{ recipe.recipe.servings }} </p>
     <p> Cooktime: {{ recipe.recipe.readyInMinutes }} minutes</p>
+    <p> Summary: </p>
+    {{ recipe.recipe.summary }} 
     <p> Instructions: </p> 
     {{ recipe.recipe.instructions }} 
     <p> Ingredients: {{ recipe.recipe.extendedIngredients }}  </p>
