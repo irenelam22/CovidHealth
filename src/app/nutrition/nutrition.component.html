@@ -1,3 +1,5 @@
+<app-navbar></app-navbar>
+
 <mat-form-field class="search">
     <mat-label>Ingredients</mat-label>
     <input matInput [(ngModel)]="value" (keyup.enter)="recipeByIngredients()">
@@ -13,7 +15,7 @@
         <mat-card-title class="header" > {{ recipe.title }}</mat-card-title>
         <!-- <mat-card-subtitle class="header">Created by: {{ exercise.license_author }}</mat-card-subtitle> -->
     </mat-card-header>
-    <img mat-card-image class="cardImage" src="{{ recipe.image }}" alt="Photo of {{ recipe.image }}">
+    <img mat-card-image class="cardImage" src="{{ recipe.image }}" alt="Photo of {{ recipe.title }}">
     <mat-card-content [style.overflow]="'hidden'">
         <p *ngIf="recipe.sourceName"> Source: {{ recipe.sourceName }} </p>
         <p *ngIf="recipe.diet"> Tags: {{ recipe.diet }} </p>
