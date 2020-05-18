@@ -42,7 +42,7 @@ The fitness portion provides a list of numerous exercises depending on the equip
 
 ### Nutrition
 
-The nutrition portion allows the user to search up recipes based on readily available foods within their fridge. The website will then generate recipes based on the ingredient list, and detil the amount of ingredients used and missing from the user's list.
+The nutrition portion allows the user to search up recipes based on readily available foods within their fridge. The website will then generate recipes based on the ingredient list, and detail the amount of ingredients used and missing from the user's list.
 
 ![Searching for ingredients](https://github.com/irenelam22/CovidHealth/blob/master/src/assets/ingredients.png)
 
