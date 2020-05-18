@@ -1,27 +1,29 @@
 <app-navbar></app-navbar>
-
-<mat-form-field class="search">
-    <mat-label>Ingredients</mat-label>
-    <input matInput [(ngModel)]="value" (keyup.enter)="recipeByIngredients()">
-    <!-- <button mat-button *ngIf="value" (click)="recipeByIngredients()">submit</button> -->
-</mat-form-field>
-<br>
-<button mat-raised-button color="accent" (click)="showRandom()"> Give me random recipes!</button>
-<br>
-<br>
-<mat-card class="card" *ngFor="let recipe of data" (click)="recipeInfo(recipe.id)">
-    <mat-card-header>
-        <!-- <div mat-card-avatar class="{{ recipe.title }}"></div> -->
-        <mat-card-title class="header" > {{ recipe.title }}</mat-card-title>
-        <!-- <mat-card-subtitle class="header">Created by: {{ exercise.license_author }}</mat-card-subtitle> -->
-    </mat-card-header>
-    <img mat-card-image class="cardImage" src="{{ recipe.image }}" alt="Photo of {{ recipe.title }}">
-    <mat-card-content [style.overflow]="'hidden'">
-        <p *ngIf="recipe.sourceName"> Source: {{ recipe.sourceName }} </p>
-        <p *ngIf="recipe.diet"> Tags: {{ recipe.diet }} </p>
-        <p *ngIf="recipe.usedIngredientCount"> Number of Used Ingredients: {{ recipe.usedIngredientCount }} </p>
-        <p *ngIf="recipe.missedIngredientCount"> Number of Missed Ingredients: {{ recipe.missedIngredientCount }} </p>
-        <p [innerHTML]="recipe.summary"> </p>
-    </mat-card-content>
-</mat-card>
+<br><br><br>
+<div class="body">
+    <mat-form-field class="search">
+        <mat-label>Ingredients</mat-label>
+        <input matInput [(ngModel)]="value" (keyup.enter)="recipeByIngredients()">
+        <!-- <button mat-button *ngIf="value" (click)="recipeByIngredients()">submit</button> -->
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="accent" (click)="showRandom()"> Give me random recipes!</button>
+    <br>
+    <br>
+    <mat-card class="card" *ngFor="let recipe of data" (click)="recipeInfo(recipe.id)">
+        <mat-card-header>
+            <!-- <div mat-card-avatar class="{{ recipe.title }}"></div> -->
+            <mat-card-title class="header" > {{ recipe.title }}</mat-card-title>
+            <!-- <mat-card-subtitle class="header">Created by: {{ exercise.license_author }}</mat-card-subtitle> -->
+        </mat-card-header>
+        <img mat-card-image class="cardImage" src="{{ recipe.image }}" alt="Photo of {{ recipe.title }}">
+        <mat-card-content [style.overflow]="'hidden'">
+            <p *ngIf="recipe.sourceName"> Source: {{ recipe.sourceName }} </p>
+            <p *ngIf="recipe.diet"> Tags: {{ recipe.diet }} </p>
+            <p *ngIf="recipe.usedIngredientCount"> Number of Used Ingredients: {{ recipe.usedIngredientCount }} </p>
+            <p *ngIf="recipe.missedIngredientCount"> Number of Missed Ingredients: {{ recipe.missedIngredientCount }} </p>
+            <p [innerHTML]="recipe.summary"> </p>
+        </mat-card-content>
+    </mat-card>
+</div>
 

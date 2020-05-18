@@ -18,6 +18,7 @@ export class WgerService {
     const params = {
       language: '2',
       status: '2',
+      limit: '180',
     };
 
     return this.http.get<{ results: Exercise[] }>(WgerService.BASE_URL + 'exercise', { params });
@@ -64,11 +65,6 @@ export class WgerService {
         return exercise;
       })),
 
-      // mergeMap((e: Exercise[]) => e),
-      // map((e: Exercise[]) => e.map(element => element.id)),
-      // map((e: Exercise[]) => e.filter(element => element.language == 2)),
-      // map(e => e.filter(element => element.status == 2)),
-      // map(e => of(e.id)),
     );
   }
 }

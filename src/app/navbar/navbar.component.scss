@@ -10,4 +10,12 @@
   .bar {
     background-color: #659DBD;
   }
-  
+
+  mat-toolbar{
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    background-color: #fad2c5;
+    color: #442C2E;
+  }
+
