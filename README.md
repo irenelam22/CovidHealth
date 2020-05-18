@@ -18,6 +18,8 @@ Uses [wger API](https://wger.de/en/software/api) and [Spoonacular API](https://s
 
 `git clone git@github.com:irenelam22/CovidHealth.git`
 
+3. Install necessary dependencies using `npm install`
+
 3. Navigate to `spoonacular.service.ts` by entering the following code:
 
 `cd CovidHealth/src/app`
