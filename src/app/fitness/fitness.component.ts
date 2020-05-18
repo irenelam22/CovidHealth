@@ -19,8 +19,6 @@ export class FitnessComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('Start');
-    this.wger.fetchIds().pipe(
-      tap(console.log)
-    ).subscribe((e: Exercise[]) => this.data = e);
+    this.wger.fetchIds().subscribe((e: Exercise[]) => this.data = e);
   }
 }

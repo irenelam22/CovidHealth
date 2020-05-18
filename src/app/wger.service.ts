@@ -18,7 +18,7 @@ export class WgerService {
     const params = {
       language: '2',
       status: '2',
-      limit: '180',
+      limit: '30',
     };
 
     return this.http.get<{ results: Exercise[] }>(WgerService.BASE_URL + 'exercise', { params });
@@ -36,7 +36,6 @@ export class WgerService {
     for (let j of file1) {
       let photo = exerciseMap.get(j.id);
       if (photo) {
-        console.warn(`Found ${photo}`);
         j.image = photo;
       }
       else {
@@ -61,7 +60,6 @@ export class WgerService {
           .replace(/\<ol\>/g, "").replace(/\<\/ol\>/g, "")
           .replace(/\<em\>/g, "").replace(/\<\/em\>/g, "")
           .replace(/\<li\>/g, "").replace(/\<\/li\>/g, "");
-        console.warn(exercise.description);
         return exercise;
       })),
 

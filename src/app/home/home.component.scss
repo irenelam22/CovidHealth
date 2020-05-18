@@ -9,15 +9,14 @@ span {
 }
 
 .full {
-    background-color: #659DBD;
-    // background-image: linear-gradient(-145deg, #45ecff, #3b99f7);
+    background-image: linear-gradient(-145deg, #ffece6, #ebc2b5);
     width: 100%;
     height: 100%;
 }
 h1, h3, p {
     text-align: center;
     vertical-align: middle;
-    color: white;
+    color: #442C2E;
     margin-left: 30%;
     margin-right: 30%;
 
@@ -39,8 +38,9 @@ h5 {
 
 button{
     margin: 30px;
+    font-size: 18px;
     text-align: center;
-    // display: flex; 
     justify-content: center;
-    // margin: auto;
+    background-color: #f7e5df;
+    color: #442C2E;
 }
