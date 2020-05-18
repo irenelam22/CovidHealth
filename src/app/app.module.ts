@@ -18,6 +18,11 @@ import { FormsModule } from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { RecommendationComponent } from './recommendation/recommendation.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatGridListModule} from '@angular/material/grid-list';
+
+
 
 
 @NgModule({
@@ -27,6 +32,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     NutritionComponent,
     HomeComponent,
     NavbarComponent,
+    RecommendationComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +47,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatInputModule,
     MatFormFieldModule,
     MatDialogModule,
+    MatSelectModule,
+    MatGridListModule
   ],
   bootstrap: [AppComponent]
 })

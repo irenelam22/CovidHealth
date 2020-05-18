@@ -10,7 +10,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
   styleUrls: ['./nutrition.component.scss']
 })
 export class NutritionComponent implements OnInit {
-  value: string = 'Apple';
+  value: string = '';
   public data: Recipe[] = [];
   public diets = [];
 

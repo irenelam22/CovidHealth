@@ -1,0 +1,81 @@
+<app-navbar></app-navbar>
+<mat-grid-list cols="2" rowHeight="50px">
+    <mat-grid-tile [colspan]="2" [rowspan]="2"><h1> <b>Recommendations! </b></h1></mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="2">
+        <h2> What's in your fridge?</h2> 
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="2">
+        <h2> What's your fitness routine?</h2> 
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <h3>Target Calories (per day)?</h3> 
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <h3>Equipment?</h3> 
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field appearance="fill">
+            <mat-label>Ex: 2000</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field appearance="fill">
+            <mat-label>Ie: Barbell, Bench, Dumbbell, Gym mat, Incline bench, Kettlebell, Pull-up bar, Swiss ball, SZ-bar, None (bodyweight exercise)</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <h3>Dietary restrictions?</h3> 
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <h3>What part of your body do you want to focus on?</h3>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field appearance="fill">
+            <mat-label>Ie: Gluten Free, Ketogenic, Vegetarian, Lacto-Vegetarian, Ovo-Vegetarian, Vegan, Pescetarian, Paleo, Primal, Whole30</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field appearance="fill">
+            <mat-label>Ie: Abs, Arms, Back, Calves, Chest, Legs, Shoulders</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <h3>Allergies (or anything you dislike)?</h3>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <h3>Official exercises only (i.e. no user submitted exercise)?</h3>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field appearance="fill">
+            <mat-label>Ex: shellfish, olives</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </mat-grid-tile>
+   
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field appearance="fill">
+            <mat-label>Umm...</mat-label>
+            <mat-select>
+              <mat-option value="yes">Yes, only verified exercises please!</mat-option>
+              <mat-option value="no">No, I'm open to everything!</mat-option>
+            </mat-select>
+          </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="2" [rowspan]="2">
+        <button mat-flat-button color="accent"> Give me recommendations!</button>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+
+
