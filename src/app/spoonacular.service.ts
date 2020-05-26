@@ -15,6 +15,10 @@ export class SpoonacularService {
     private readonly http: HttpClient,
   ) { }
 
+  /* 
+  Given a list of ingredients, find recipes by ingredients
+  Also sets the API key and the number of displayed results (currently set to 3 to prevent exceeded the API's daily capacity)
+  */
   findByIngredients(ingredientList) {
     const params = {
       apiKey: SpoonacularService.API_KEY,
@@ -26,6 +30,7 @@ export class SpoonacularService {
 
   }
 
+  // Returns similar recipes given the current recipe's ID (currently displays 3)
   getSimilarRecipe(id) {
     const params = {
       apiKey: SpoonacularService.API_KEY,
@@ -36,6 +41,7 @@ export class SpoonacularService {
 
   }
 
+  // Returns random recipes (currently displays 3)
   getRandomRecipe() {
     const params = {
       apiKey: SpoonacularService.API_KEY,
@@ -46,6 +52,7 @@ export class SpoonacularService {
 
   }
 
+  // Returns the information of a given recipe (e.g. dietary information, recipes)
   getRecipe(id) {
     const params = {
       apiKey: SpoonacularService.API_KEY,

@@ -14,6 +14,9 @@ export class WgerService {
     private readonly http: HttpClient,
   ) { }
 
+  /*
+  Set the language to English and filter based on verified workouts only (i.e. no user inputs)
+  */
   retrieve(): Observable<{ results: Exercise[] }> {
     const params = {
       language: '2',
@@ -24,12 +27,16 @@ export class WgerService {
     return this.http.get<{ results: Exercise[] }>(WgerService.BASE_URL + 'exercise', { params });
   }
 
+  // Search all photos (because photo IDs are not ordered the same way as exercise IDs)
   photo(): Observable<{ results: Image[] }> {
     return this.http.get<{ results: Image[] }>(WgerService.BASE_URL + 'exerciseimage/?is_main=True&limit=180');
   }
 
-  process(file1: Exercise[], file2: Image[]) {
-    let exerciseMap = new Map();
+  /*
+  Sets the corresponding image to each workout if any, otherwise, display the filler image
+  */
+  process([file1, file2]: [Exercise[], Image[]]) {
+    const exerciseMap = new Map();
     for (let i of file2) {
       exerciseMap.set(i.exercise, i.image);
     }
@@ -45,6 +52,9 @@ export class WgerService {
     return file1;
   }
 
+  /*
+  Filters results by bypassing html tags, retrieves photo (if any) from a separate database
+  */
   fetchIds(): Observable<Exercise[]> {
     const res = pipe(pluck('results'));
 
@@ -52,8 +62,7 @@ export class WgerService {
       this.retrieve().pipe(res),
       this.photo().pipe(res),
     ).pipe(
-      tap(console.log),
-      map(([exercises, photos], _) => this.process(exercises, photos)),
+      map((e: [Exercise[], Image[]]) => this.process(e)),
       map(exercises => exercises.map(exercise => {
         exercise.description = exercise.description
           .replace(/\<p\>/g, "\n").replace(/\<\/p\>/g, "")

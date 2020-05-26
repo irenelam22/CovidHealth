@@ -24,6 +24,7 @@ export class NutritionComponent implements OnInit {
     this.showRandom();
   }
 
+  // Plucks necessary information and displays random recipes
   public showRandom() {
     this.spoonacular.getRandomRecipe().pipe(
       pluck('recipes'),
@@ -34,18 +35,21 @@ export class NutritionComponent implements OnInit {
     ))).subscribe(recipes => this.data = recipes);
   }
 
+  // Finds recipes by ingredients
   public recipeByIngredients() {
     this.spoonacular.findByIngredients(this.value).pipe(
       tap(console.log)
     ).subscribe(r => this.data = r);
   }
 
+  // Returns the recipe's information given the recipe's ID
   public recipeInfo(id: string) {
     this.spoonacular.getRecipe(id).pipe(
       tap(console.log)
     ).subscribe( r => this.showRecipe(r));
   }
 
+  // Show the given recipe in a popup
   public showRecipe(recipe: Recipe) {
     this.dialog.open(RecipeOverview, {
       width: '80%',
@@ -54,6 +58,9 @@ export class NutritionComponent implements OnInit {
   }
 }
 
+/**
+ * Displays the popup information when the user clicks on a recipe
+ */
 @Component({
   selector: 'recipe-overview',
   templateUrl: 'recipe-overview.html',
